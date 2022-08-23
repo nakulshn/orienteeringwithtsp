@@ -59,6 +59,9 @@ def tsp(vertices):
     permutation, distance = solve_tsp_local_search(distance_matrix)
 
     """
+    # Below code from https://ericphanson.com/blog/2016/the-traveling-salesman-and-10-lines-of-python/
+    # I'm currently not using the below code and importing a different implementation which is
+    # faster in my specific case because we have less datapoints usually (very unlikely that someone visits > 10 places per day, for instance)
     tour = random.sample(range(len(vertices)),len(vertices))
     for temperature in np.logspace(0,3,num=1000)[::-1]:
         [i,j] = sorted(random.sample(range(len(vertices)),2))
